@@ -46,7 +46,7 @@
 	<script src="https://www.nmu.edu/sites/all/modules/jquery_update/replace/misc/1.9/overlay-parent.js?v=1.0"></script>
 	<script src="https://www.nmu.edu/sites/all/modules/jquery_update/replace/ui/external/jquery.cookie.js?v=67fb34f6a866c40d0570"></script>
 	<script src="https://www.nmu.edu/sites/all/themes/zen_nmu/js/script.min.js?v1.0"></script>
-	<script src="https://www.nmu.edu/sites/all/themes/zen_nmu/js/vendor/bootstrap.js?v1.0"></script>
+	<script src="https://www.nmu.edu/sites/all/themes/zen_nmu/js/vendor/bootstrap.min.js?v1.0"></script>
 	<!--[if lt IE 9]>
 		<script src="https://www.nmu.edu/sites/all/themes/zen/js/html5.js?v1.0"></script>
 	<![endif]-->
@@ -64,8 +64,11 @@
 </head>
 
 <body class="html not-front not-logged-in one-sidebar sidebar-first page-node page-node- node-type-fearless-internal-page section-node" >
-	<p id="skip-link"><a href="#main-menu" class="element-invisible element-focusable">Jump to navigation</a></p>
-	<div id="page">
+    <p id="skip-link">
+    	<a href="#content" class="element-invisible element-focusable">Skip to content</a>
+    </p>
+    
+    <div id="page">
 
 		<header class="header" id="header" role="banner">
 			<div class="clearfix region region-top-navigation">
@@ -80,7 +83,7 @@
 									<span class="icon-bar"></span>
 									<span class="icon-bar"></span>
 								</button>
-								<button type="button" class="navbar-toggle navbar-search" id="search-nav-toggle" data-toggle="collapse" data-target="#search-collapse-div">
+								<button type="button" class="navbar-toggle navbar-search" id="search-nav-toggle" data-toggle="collapse" data-target="#search-collapse-div"  aria-label="Search">
 									<span class="glyphicon glyphicon-search"></span>
 								</button>
 							</div>
@@ -93,21 +96,24 @@
 									<li class="toolbar-main-nav"><a class="allcaps" href="//www.nmu.edu/academics">Academics</a></li>
 									<li class="toolbar-main-nav"><a class="allcaps" href="//www.nmu.edu/sports">Sports</a></li>
 									<li class="toolbar-main-nav"><a class="allcaps" href="//www.nmu.edu/admissions/life">Campus Life</a></li>
-									<li class="toolbar-home"><a href="//www.nmu.edu/"><span class="glyphicon glyphicon-home" title="NMU Homepage"></span></a></li>
+									<li class="toolbar-main-nav"><a class="allcaps" href="//www.nmu.edu/hr">Human Resources</a></li>
+									<li class="toolbar-home"><a href="//www.nmu.edu/" aria-label="Home"><span class="glyphicon glyphicon-home" title="NMU Homepage"></span></a></li>
 									<li><a class="allcaps" href="//www.nmu.edu/admissions">Future Students</a></li>
 									<li><a class="allcaps" href="//www.nmu.edu/students">Current Students</a></li>
-									<li><a class="allcaps" href="//www.nmu.edu/facultystaff">Faculty & Staff</a></li>
+									<li><a class="allcaps" href="//www.nmu.edu/online">Online Students</a></li>
 									<li><a class="allcaps audience-single-word-nav" href="//www.nmu.edu/friends">Alumni</a></li>
-									<li><a class="allcaps audience-single-word-nav" href="//www.nmu.edu/admissions/visit">Visitors</a></li>
+									<li><a class="allcaps audience-single-word-nav hide-857" href="//www.nmu.edu/admissions/visit">Visitors</a></li>
+									<li><a class="allcaps audience-single-word-nav hide-905" href="//www.nmu.edu/ean" title="Educational Access Network">EAN</a></li>
 								</ul>
 
 								<ul class="nav navbar-nav navbar-right nmu-toolbar-nav">
 									<li><a href="https://mynmu.nmu.edu/">MyNMU</a></li>
-									<li><a class="allcaps" href="//www.nmu.edu/calendar">Events</a></li>
-									<li><a class="allcaps" href="//www.nmu.edu/apply">Apply</a></li>
 									<li><a class="allcaps" href="//www.nmu.edu/atozsearch">A-Z</a></li>
+									<li><a class="allcaps" href="//www.nmu.edu/bookstore">Bookstore</a></li>
+									<li><a class="allcaps" href="//www.nmu.edu/apply">Apply</a></li>
 									<li><a class="allcaps" href="//www.nmu.edu/give/nmumainheader">Give</a></li>
-									<li class="toolbar-search dropdown yamm-fw"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="search-icon"><span class="glyphicon glyphicon-search" title="Search NMU"></span></a>
+									<li><a class="allcaps" href="//www.nmu.edu/calendar">Events</a></li>
+									<li class="toolbar-search dropdown yamm-fw"><a class="dropdown-toggle" data-toggle="dropdown" href="#" id="search-icon"  aria-expanded="false" aria-label="Search NMU"><span class="glyphicon glyphicon-search" title="Search NMU"></span></a>
 										<ul class="dropdown-menu dropdown-search yamm-content" role="menu">
 											<li class="dropdown-menu-width-wrapper" id="search-dropdown">
 												<!-- js to add search dropdown stuff here -->
@@ -120,6 +126,7 @@
 
 							<div class="collapse navbar-collapse" id="search-collapse-div">
 								<form name="searchform" action="/searchquery" method="get" id="searchform">
+									<fieldset>
 									<div class="row">
 										<div class="col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-1 search-options-container">
 											<div class="allcaps search-label">Search Options:</div>
@@ -139,12 +146,12 @@
 													</ul>
 												</div>
 											</div><!-- /.row -->
-											</div>
+										</div><!-- /.search-options-container -->
 											<div class="col-sm-10 col-sm-offset-1 col-md-6 col-md-offset-1 search-inputs">
 												<div class="input-group" id="general-search">
-													<input type="text" id="search-query" class="form-control search-txt-box" name="query" placeholder="SEARCH NMU">
+													<input type="text" id="search-query" class="form-control search-txt-box" name="query" aria-labelledby="search-az search-keyword search-calendar search-people" placeholder="SEARCH NMU">
 													<input type="hidden" name="return" value="yes">
-													<select name="searchname" id="search-department" class="form-control search-txt-box" style="display:none;">
+													<select name="searchname" id="search-department" class="form-control search-txt-box" aria-labelledby="search-directory" style="display:none;">
 														<!-- [[the department pulldown requires PHP or some other solution to run
 																		as a last resort, you can copy in the contents of the department-list.html file linked below.
 																		only do so with the understanding that this file changes frequently and your page will need to be updated
@@ -157,11 +164,12 @@
 														]] -->
 													</select>
 													<span class="input-group-btn">
-														<input type="submit" class="allcaps search-submit-button btn btn-default" name="submit" value="Submit" />
+														<input type="submit" class="allcaps search-submit-button btn btn-default" name="search" value="Submit" />
 													</span>
 												</div>
-											</div>
+											</div><!-- /.search-inputs -->
 									</div><!-- /.row -->
+									</fieldset>
 								</form>
 							</div><!-- /#search-collapse-div -->
 
@@ -174,13 +182,18 @@
 			<div class="region region-branding">
 				<div id="block-block-55" class="block block-block first last odd">
 					<div class="branding-logo">
-						<a href="//www.nmu.edu"><img src="https://www.nmu.edu/Webb/Images/NMULogos/NMU_G_Horizontal_Transparent.png" style="width:500px; height:68px;" alt="NMU Logo" title="Northern Michigan University"></a>
+						<a href="/www.nmu.edu">
+							<img src="/Webb/Images/NMULogos/NMU_G_Horizontal_Transparent.png"
+								 srcset="/Webb/Images/NMULogos/NMU_G_Horizontal_Transparent@1.5x.png 1.5x,
+											 /Webb/Images/NMULogos/NMU_G_Horizontal_Transparent@2x.png 2x"
+								 alt="NMU Logo"
+								 title="Northern Michigan University">
+						</a>
 					</div>
-				</div>
 			</div><!-- /.region-branding -->
 
 
-			<div class="region region-main-navigation">
+      <div class="region region-main-navigation">
 				<div id="block-block-56" class="block block-block first odd">
 					<nav id="header-main-navigation" class="navbar yamm navbar-default navbar-center navbar-static-top" role="navigation" data-spy="affix" data-offset-top="87">
 						<div class="container-fluid">
@@ -200,7 +213,7 @@
 
 								 <!-- one -->
 									<li class="dropdown yamm-fw">
-										<a href="#" class="dropdown-toggle allcaps" data-toggle="dropdown">About</a>
+          					<a href="#" class="dropdown-toggle allcaps" data-toggle="dropdown" aria-expanded="false">About</a>
 										<ul class="dropdown-menu yamm-content" role="menu">
 											<li class="dropdown-menu-width-wrapper">
 												<div class="row">
@@ -210,13 +223,13 @@
 															<li><a href="//www.nmu.edu/achievements">Achievements</a></li>
 															<li><a href="//www.nmu.edu/nmucampus">Campus</a></li>
 															<li><a href="//www.nmu.edu/publicsafety/clery-act">Clery Act Statistics</a></li>
+															<li><a href="//www.nmu.edu/facultystaff">Faculty & Staff</a></li>
 															<li><a href="//www.nmu.edu/hr">Human Resources</a></li>
-															<li><a href="//www.nmu.edu/naturalwonders">Marquette Area</a></li>
 														</ul>
 													</div>
 													<div class="col-sm-3">
 														<ul class="list-unstyled" role="menu">
-
+															<li><a href="//www.nmu.edu/naturalwonders">Marquette Area</a></li>
 															<li><a href="//www.nmu.edu/mission">Mission and Vision</a></li>
 															<li><a href="//www.nmu.edu/profile">People</a></li>
 															<li><a href="//www.nmu.edu/president">President's Office</a></li>
@@ -225,7 +238,7 @@
 														</ul>
 													</div>
 													<div class="col-sm-6">
-														<img src="https://www.nmu.edu/sites/all/themes/zen_nmu/images/main-navigation/nav-about.png" align="right" />Northern Michigan University, located in Marquette, Michigan, is a dynamic four-year, public, comprehensive university that has grown its reputation based on its award-winning leadership programs, cutting-edge technology initiatives and nationally recognized academic programs.  Northern has a population of about 9,000 undergraduate and graduate students.
+														<img src="https://www.nmu.edu/sites/all/themes/zen_nmu/images/main-navigation/nav-about.png" alt="City of Marquette Arial View" align="right" />Northern Michigan University, located in Marquette, Michigan, is a dynamic four-year, public, comprehensive university that has grown its reputation based on its award-winning leadership programs, cutting-edge technology initiatives and nationally recognized academic programs.  Northern has a population of about 9,000 undergraduate and graduate students.
 													</div>
 												</div>
 											</li>
@@ -234,13 +247,13 @@
 
 									<!-- two -->
 									<li class="dropdown yamm-fw">
-										<a href="#" class="dropdown-toggle allcaps" data-toggle="dropdown">Enroll</a>
-										<ul class="dropdown-menu yamm-content" role="menu">
+										<a href="#" class="dropdown-toggle allcaps" id="enroll_link" data-toggle="dropdown" aria-expanded="false">Enroll</a>
+										<ul class="dropdown-menu yamm-content" id="enroll_menu" role="menu">
 											<li class="dropdown-menu-width-wrapper">
 												<div class="row">
 													<div class="col-sm-3">
 														<ul class="list-unstyled" role="menu">
-															<li><a href="//www.nmu.edu/admissions">Admissions Office</a></li>
+															<li><a id="admissions_link" href="//www.nmu.edu/admissions">Admissions Office</a></li>
 															<li><a href="//www.nmu.edu/admissions/admitted">Admitted Students</a></li>
 															<li><a href="//www.nmu.edu/admissions/applyto">Apply Online</a></li>
 															<li><a href="//www.nmu.edu/admissions/contactcounselor">Contact a Counselor</a></li>
@@ -260,7 +273,7 @@
 														</ul>
 													</div>
 													<div class="col-sm-6">
-														<img src="https://www.nmu.edu/sites/all/themes/zen_nmu/images/main-navigation/nav-enroll.png" align="right" />Ask a few Northern students what drew them to our university and you will get a variety of answers. That's because there is no single thing that make students want to go to Northern; it is ALL the things that we do here.  Northern is big enough to offer a wide variety of academic programs but is also small enough that every time you walk across campus, you'll probably wave "hi" to someone you know.
+														<img src="https://www.nmu.edu/sites/all/themes/zen_nmu/images/main-navigation/nav-enroll.png" alt="NMU Students Gathering in a Common Area" align="right" />Ask a few Northern students what drew them to our university and you will get a variety of answers. That's because there is no single thing that make students want to go to Northern; it is ALL the things that we do here.  Northern is big enough to offer a wide variety of academic programs but is also small enough that every time you walk across campus, you'll probably wave "hi" to someone you know.
 													</div>
 												</div>
 											</li>
@@ -269,7 +282,7 @@
 
 									<!-- three -->
 									<li class="dropdown yamm-fw">
-										<a href="#" class="dropdown-toggle allcaps" data-toggle="dropdown">Academics</a>
+          					<a href="#" class="dropdown-toggle allcaps" data-toggle="dropdown" aria-expanded="false">Academics</a>
 										<ul class="dropdown-menu yamm-content" role="menu">
 											<li class="dropdown-menu-width-wrapper">
 												<div class="row">
@@ -291,7 +304,7 @@
 														</ul>
 													</div>
 													<div class="col-sm-6">
-														<img src="https://www.nmu.edu/sites/all/themes/zen_nmu/images/main-navigation/nav-academics.png" align="left" />Curiosity is the raw ingredient of knowledge. It causes us to ask questions, to seek answers, to learn. At Northern Michigan University, natural curiosity and intellectual challenge meet in stimulating classes grounded in the liberal arts. So wherever your curiosity leads you, you can count on the support you need to take the next step, ask the next question, propose the next hypothesis.
+														<img src="https://www.nmu.edu/sites/all/themes/zen_nmu/images/main-navigation/nav-academics.png" alt="NMU Professor Teaching a Class of Students" align="left" />Curiosity is the raw ingredient of knowledge. It causes us to ask questions, to seek answers, to learn. At Northern Michigan University, natural curiosity and intellectual challenge meet in stimulating classes grounded in the liberal arts. So wherever your curiosity leads you, you can count on the support you need to take the next step, ask the next question, propose the next hypothesis.
 													</div>
 												</div>
 											</li>
@@ -300,16 +313,15 @@
 
 									<!-- four -->
 									<li class="dropdown yamm-fw">
-										<a href="#" class="dropdown-toggle allcaps" data-toggle="dropdown">Sports</a>
+          					<a href="#" class="dropdown-toggle allcaps" data-toggle="dropdown" aria-expanded="false">Sports</a>
 										<ul class="dropdown-menu yamm-content" role="menu">
 											<li class="dropdown-menu-width-wrapper">
 												<div class="row">
 													<div class="col-sm-9">
-														<img src="https://www.nmu.edu/sites/all/themes/zen_nmu/images/main-navigation/nav-sports.png" align="left" />The mission of the Northern Michigan University Department of Intercollegiate Athletics, Recreational Sports and the United States Olympic Training Site is to create an environment that promotes academic excellence, interpersonal growth and social development; embraces diversity; teaches lifetime leisure skills; fosters spirit and tradition; and builds a lifelong connection to NMU.
+														<img src="https://www.nmu.edu/sites/all/themes/zen_nmu/images/main-navigation/nav-sports.png" alt="NMU Volleyball Player Serving" align="left" />The mission of the Northern Michigan University Department of Intercollegiate Athletics, Recreational Sports and the United States Olympic Training Site is to create an environment that promotes academic excellence, interpersonal growth and social development; embraces diversity; teaches lifetime leisure skills; fosters spirit and tradition; and builds a lifelong connection to NMU.
 													</div>
 													<div class="col-sm-3">
 														<ul class="list-unstyled" role="menu">
-															<li><a href="//www.nmu.edu/sports/schedule">Complete Athletics Schedule</a></li>
 															<li><a href="http://www.nmuwildcats.com/">Intercollegiate Athletics</a></li>
 															<li><a href="//www.nmu.edu/sportsrecsports/">Recreational Sports</a></li>
 															<li><a href="http://www.nmuwildcats.com/information/SportCamps">Sports Camps</a></li>
@@ -325,16 +337,16 @@
 
 									<!-- five -->
 									<li class="dropdown yamm-fw">
-										<a href="#" class="dropdown-toggle allcaps" data-toggle="dropdown">Campus Life</a>
+          					<a href="#" class="dropdown-toggle allcaps" data-toggle="dropdown" aria-expanded="false">Campus Life</a>
 										<ul class="dropdown-menu yamm-content" role="menu">
 											<li class="dropdown-menu-width-wrapper">
 												<div class="row">
 													<div class="col-sm-6">
-														<img src="https://www.nmu.edu/sites/all/themes/zen_nmu/images/main-navigation/nav-campus-life.png" align="left" />Yes, you'll attend your classes, but what else will you be doing as a student at Northern?  There's so much stuff to choose from. There's a student organization or club – almost 300 at last count-- for just about every interest. If you're into investigating the paranormal, anime or improv comedy, there's a group. Cheer on your fellow Wildcats at a hockey game or volleyball match. Join a competitive club sport or an intramural team.  The sky is the limit.
+														<img src="https://www.nmu.edu/sites/all/themes/zen_nmu/images/main-navigation/nav-campus-life.png" alt="NMU Baja SAE Club Student Working on Racing Vehicle" align="left" />Yes, you'll attend your classes, but what else will you be doing as a student at Northern?  There's so much stuff to choose from. There's a student organization or club – almost 300 at last count-- for just about every interest. If you're into investigating the paranormal, anime or improv comedy, there's a group. Cheer on your fellow Wildcats at a hockey game or volleyball match. Join a competitive club sport or an intramural team.  The sky is the limit.
 													</div>
 													<div class="col-sm-3">
 														<ul class="list-unstyled" role="menu">
-															<li><a href="http://www.nmubookstore.com/">Bookstore</a></li>
+															<li><a href="//www.nmu.edu/bookstore">Bookstore</a></li>
 															<li><a href="//www.nmu.edu/studentenrichment">Center for Student Enrichment</a></li>
 															<li><a href="//www.nmu.edu/dso">Dean of Students</a></li>
 															<li><a href="//www.nmu.edu/dining">Dining Services</a></li>
@@ -344,9 +356,10 @@
 													</div>
 													<div class="col-sm-3">
 														<ul class="list-unstyled" role="menu">
-															<li><a href="//www.nmu.edu/internationalprograms">International Programs</a></li>
+															<li><a href="//www.nmu.edu/invent">Invent@NMU</a></li>
 															<li><a href="//www.nmu.edu/calendar">Master Calendar</a></li>
 															<li><a href="//www.nmu.edu/multiculturaledandres">Multicultural Education and Resource Center</a></li>
+															<li><a href="//www.nmu.edu/studentconnect">Student Connect</a></li>
 															<li><a href="//www.nmu.edu/organizations">Student Organizations</a></li>
 														</ul>
 													</div>
